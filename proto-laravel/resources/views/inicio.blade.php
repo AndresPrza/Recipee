@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEMBER STUDIOS</title>
 
-    <link href="css/hover.css" rel="stylesheet"/>
-    <link href="css/inicio.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('css/hover.css')}}">
 
 </head>
 
