@@ -13,7 +13,7 @@
 
 <body>
 
-    <h1>La página funciona a la perfección con localhost uwuwuwuwu</h1>
+    <h1>ACTUALIZADO</h1>
 
 </body>
 </html>
