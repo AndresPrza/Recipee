@@ -1,8 +1,13 @@
+:root {
+    --mmbr-blue: #03b1fc;
+}
+
 * {
     padding: 0;
     margin: 0;
 }
 
 h1 {
-    color: red;
+    /* color: var(--mmbr-blue); */
+    color: blue;
 }
