@@ -6,7 +6,9 @@
       1. Variables
         1.1 Color Palette
       2. Global tags
-      3. Home ID's
+      3. Home
+        3.1 id
+        3.2 Animations
 
    <---> <---|---> <---> */
 
@@ -62,7 +64,9 @@ h2 {
   font-size: 3em;
 }
 
-   /* === 3. Home ID's === */ 
+   /* === 3. Home === */ 
+
+    /* -> 3.1 id <- */
 
 .home-header, .home-content {
   /* padding: 20px 20px 0 20px; */
@@ -146,6 +150,8 @@ h2 {
   list-style-type: none;
 }
 
+      /* -> 3.3 Animations <- */
+
 /* Ripple Out */
 @-webkit-keyframes mmbr-ripple-out {
   100% {
@@ -165,25 +171,58 @@ h2 {
     opacity: 0;
   }
 }
-.mmbr-ripple-out {
+.mmbr-ripple-out:before {
+  content: '';
+  position:absolute;
+  border:3px solid var(--mmbr-primary-2);
+  border-radius: 20px;
+  top: -3px;
+  right: -3px;
+  bottom: -3px;
+  left: -3px;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+.mmbr-ripple-out:focus:before {
+  -webkit-animation-name: mmbr-ripple-out;
+  animation-name: mmbr-ripple-out;
+}
+
+/* Push */
+@-webkit-keyframes mmbr-push {
+  50% {
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+  }
+  100% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+@keyframes mmbr-push {
+  50% {
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+  }
+  100% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+.mmbr-push {
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  position: relative;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
-.mmbr-ripple-out:before {
-  content: '';
-  position: absolute;
-  border: var(--mmbr-primary-2);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-}
-.mmbr-ripple-out:hover:before, .mmbr-ripple-out:focus:before, .mmbr-ripple-out:active:before {
-  -webkit-animation-name: mmbr-ripple-out;
-  animation-name: mmbr-ripple-out;
+.mmbr-push:focus, .mmbr-push:active {
+  -webkit-animation-name: mmbr-push;
+  animation-name: mmbr-push;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
 }

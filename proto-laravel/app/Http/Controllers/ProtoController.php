@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TestControl extends Controller
+class ProtoController extends Controller
 {
     public function logIn() {
-        return view('logIn');
+        return view('auth.logIn');
     }
 
     public function signIn() {
-        return view('signIn');
+        return view('auth.signIn');
     }
 }

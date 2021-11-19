@@ -1,6 +1,6 @@
 @extends('layouts.title-screen')
 
-@section('title', 'HOME')
+@section('title', 'SIGN IN')
 
 @section('title-main', 'PROROTIPO')
 
@@ -15,17 +15,17 @@
 
 @section('home-content')
 
-    <div class="home-buttons-wrapper">
-        <a href="{{route('logIn')}}" class="home-login-button hvr-grow mmbr-ripple-out mmbr-push">
-            <li class="button-text">
-                Iniciar sesión
-            </li>
-        </a>
-        <a href="{{route('signIn')}}" class="home-signin-button hvr-grow mmbr-ripple-out mmbr-push">
-            <li class="button-text">
-                Registrarse
-            </li>
-        </a>
-    </div>
+    <h1 style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin:auto;
+        font-size:10em;
+        font-weight: 900;
+        display: flex;
+        color: var(--mmbr-primary-2);">
+            SIGN IN
+    </h1>
 
 @endsection
