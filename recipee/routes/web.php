@@ -56,6 +56,9 @@ Route::get('/search/recipes', [SearchController::class,'searchRecipes'])
     ->name('search.recipes');
 
 
+Route::post('/principal', [RecipeeController::class,'addToBasket'])
+->name('add.to.basket');
+
 
 // === LOG/SIGN-IN ===
 

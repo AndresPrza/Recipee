@@ -48,7 +48,12 @@ class RecipesController extends Controller
    public function update (Request $request, $recipeId) {
 
     $recipe = Recipe::find($recipeId);
-    // dd($request);
+    // $recipexingredients = RecipeXIngredient::where("recipe_id", $recipeId)->get();
+    $decodedlist = json_decode($request->jsonlist, true);
+
+    // foreach($recipexingredients as $recipexingredient) {
+    //     $recipexingredient->ingredient = $request
+    // }
 
     if( $request->hasFile('thumbnail') ) {
 
@@ -61,8 +66,10 @@ class RecipesController extends Controller
 
     $recipe->title = $request->title;
     $recipe->content = $request->contentInput;
-    // $recipe->ingredients_list = $ingredientsList;
+    $recipe->ingredients_list = $decodedlist;
     $recipe->save();
+
+    // dd($recipe->ingredients_list);
 
     return redirect()->route('owner.recipe', $recipe->id);
     }

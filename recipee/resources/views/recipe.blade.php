@@ -1,3 +1,7 @@
+<?php 
+    $ingredientslist = json_decode($recipe->ingredients_list, true);
+    // dd(json_decode($recipe->ingredients_list, true));
+?>
 
 @extends('layouts.app')
 
@@ -35,15 +39,36 @@
                 Ingredientes
             </h2>
 
-            <ul style="color:rgba(255, 255, 255, 0.8);" class="pl-4">
-                <li>aquí va</li>
-                <li>un listado</li>
-                <li>de los</li>
-                <li>ingredientes</li>
-                <li>de la</li>
-                <li>receta</li>
-                <li>{{ $recipe->title }}</li>
-            </ul>
+            @if ($ingredientslist != "" && $ingredientslist != null)
+
+                @foreach ($ingredientslist as $ingredient)
+
+                <ul id="ingredientsListItem" class="pl-5">
+                    <li id="ingredient-name" class="ingredient-name text-base">
+                            {{ $ingredient['ingredient'] }}
+                    </li>
+                        <div>
+
+                        <p id="ingredient-quantity" class="text-sm" style="color:rgba(255, 255, 255, 0.7)">
+
+                        @if( $ingredient['quantity'] != "" && $ingredient['quantity'] != null )
+                            ( {{ $ingredient['quantity'] }}
+                            @if( $ingredient['unit'] != "" && $ingredient['unit'] != null )
+                                {{ $ingredient['unit'] }}
+                            @endif
+                            )
+
+                        @endif
+                            
+                        </p>
+                        
+                        </div>
+                        
+                </ul>
+
+                @endforeach
+
+            @endif
         </div>
 
         <div class="recipe-content" >

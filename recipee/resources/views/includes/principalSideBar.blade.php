@@ -36,11 +36,20 @@
             <p class="leading-0 text-lg pt-8 font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline ml-4">Canasta actual</p>
             <p class="leading-0 -mt-1 text-sm tracking-widest text-gray-600 rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline ml-4">Canasta no guardada</p>
 
-            <form autocomplete="off" action="/action_page.php" class="mt-3 z-0">
-                <div class="autocomplete-ingredients placeholder-gray-500 text-sm text-gray-900 py-1 px-2 rounded-3xl w-full" style="z-index: 3;">
-                    <input id="searchingredients" type="text" name="searchingredients" placeholder="Buscar ingredientes">
+            <!-- <input id="searchingredients" class="text-white py-2 mt-2 searchingredients" type="text" name="searchingredients" placeholder="Buscar ingredientes"> -->
+
+            <form action="" method="POST" class="mt-3 z-0" id="basket-form">
+                @csrf
+                <div class="addtobasket" style="z-index: 3;">
+                    <input id="searchingredients" class="searchingredients" type="text" name="searchingredients"
+                    placeholder="Añadir ingredientes" autocomplete="off">
+                    <button type="button" id="addingbutton" class="addingbutton relative mmbr-bg-hvr">
+                    <i class="mmbr-center fas fa-plus" style="color:(--mmbr-light-5) !important;"></i>
+                    </button>
                 </div>
             </form>
+
+            <div id="basket" class="p-3 hidden basket mt-3"></div>
 
             </nav>
         </div>

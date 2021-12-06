@@ -1,3 +1,11 @@
+<?php 
+    use App\Models\Recipe;
+
+    $ingredientslist = json_decode($recipe->ingredients_list);
+
+    // dd(json_encode($ingredientslist)); //string
+?>
+
 
 @extends('layouts.editRecipe')
 
@@ -17,13 +25,10 @@
 
 @section('content')
 
-<?php
-    
-?>
-
 <form id="edit-form" method="POST" action="{{route('admin.recipes.update', $recipe->id)}}" enctype="multipart/form-data"
 style="background-color:var(--mmbr-light-5); height:100%;" class="content flex mx-0 my-0 overflow-auto">
 @csrf
+    <input type="text" class="hidden" name="jsonlist" id="jsonlist" value="{{ $recipe->ingredients_list }}">
     <div class="recipe-container">
 
         <div class="recipe-header">
@@ -63,7 +68,32 @@ style="background-color:var(--mmbr-light-5); height:100%;" class="content flex m
             <div style="background-color:rgba(255, 255, 255, 0.2); width:100%; height:1px;"
             class="mt-2 mb-4"></div>
 
-            <div id="ingredientsListItems"></div>
+            <div id="ingredientsListItems">
+
+            @if ($ingredientslist != "" && $ingredientslist != null)
+
+                @foreach ($ingredientslist as $ingredient)
+
+                <div id="ingredientsListItem" class="ingredientsListItem">
+                        <div id="ingredient-name" class="ingredient-name">
+                            {{ $ingredient->ingredient }}
+                        </div>
+                        <div id="ingredient-quantity" class="ingredient-quantity">
+                            {{ $ingredient->quantity }}
+                        </div>
+                        <div id="ingredient-unit" class="ingredient-unit">
+                            {{ $ingredient->unit }}
+                        </div>
+                        <button type="button" class="relative remove-ingredient mmbr-color-hvr" onclick="removeElement(event, ${position})">
+                            <i class="mmbr-center fas fa-backspace fa-lg" style="color:var(--mmbr-dark-2)"></i>
+                        </button>
+                    </div>
+
+                @endforeach
+
+            @endif
+
+            </div>
 
         </div>
         <div class="recipe-content" >
@@ -111,9 +141,10 @@ style="background-color:var(--mmbr-light-5); height:100%;" class="content flex m
 <script src="{{url('js/quill.js')}}"></script>
 <script src="{{url('js/quill-textarea.js')}}"></script>
 
-    <script type="text/javascript">
 
-    </script>
+<script type="text/javascript">
+    
+</script>
 
 </form>
 

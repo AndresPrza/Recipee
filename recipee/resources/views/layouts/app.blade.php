@@ -1,5 +1,9 @@
 <?php
-    
+    use App\Models\Ingredient;
+    $ingvar = Ingredient::pluck('ingredient')->toArray();
+    $jingvar = json_encode($ingvar);
+    // dd($jingvar);
+
 ?>
 
 <!DOCTYPE html>
@@ -29,5 +33,24 @@
     @include('js.recipee')
 
 </body>
+
+<script src="{{url('js/addToBasket.js')}}"></script>
+<!-- <script type="text/javascript">
+    
+    window.addEventListener("load", function() {
+        
+        document.getElementById("addingbutton").addEventListener("click", function() {
+            fetch(`principal`, {
+                method:'get'
+                body: jbasket
+            })
+            .then( response => response.text() )
+            .then( html => {
+                document.getElementById("recipes-container").innerHTML = html
+            })
+        })
+    })
+
+</script> -->
 
 </html>

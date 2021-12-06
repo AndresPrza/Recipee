@@ -1,3 +1,5 @@
+// alert("siu")
+
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -97,6 +99,7 @@ function autocomplete(inp, arr) {
   
   /*An array containing all the ingredients names:*/
    var ingredients = JSON.parse(jingvar);
+  //  alert(ingredients)
   
   /*initiate the autocomplete function on the "searchingredients" element, and pass along the ingredients array as possible autocomplete values:*/
   autocomplete(document.getElementById("searchingredients"), ingredients);

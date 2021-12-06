@@ -33,11 +33,15 @@ class RecipeeController extends Controller
     public function principal() {
         $ingredients = Ingredient::all();
 
+        
+
         foreach ($ingredients as $ingredient) {
             $ingvar[] = "$ingredient->ingredient";
         }
-
         $recipes = Recipe::all();
+
+        // dd($recipes);
+
         $users = User::all();
 
         // dd($recipes);
@@ -76,10 +80,11 @@ class RecipeeController extends Controller
             $ingvar[] = "$ingredient->ingredient";
         }
 
-        $recipes = Recipe::where("title", "LIKE", "%" . $request->searchRecipes . "%")->get();
+        $basket=["pollo", "aceite", "ajo", "cebolla", "tomate", "agua", "queso"];
+
         $users = User::all();
 
-        // dd($recipes);
+        $recipes = Recipe::where("title", "LIKE", "%" . $request->searchRecipes . "%")->orderBy("created_at", "desc")->get();
 
         return view('paginate.recipes', [
             'ingvar' => $ingvar,
@@ -95,10 +100,11 @@ class RecipeeController extends Controller
             $ingvar[] = "$ingredient->ingredient";
         }
 
-        $recipes = Recipe::where("title", "LIKE", "%" . $request->searchRecipes . "%")->get();
+        $basket=["pollo", "aceite", "ajo", "cebolla", "tomate", "agua", "queso"];
+
         $users = User::all();
 
-        // dd($recipes);
+        $recipes = Recipe::where("title", "LIKE", "%" . $request->searchRecipes . "%")->orderBy('id')->get();
 
         return view('paginate.myRecipes', [
             'ingvar' => $ingvar,
@@ -108,14 +114,15 @@ class RecipeeController extends Controller
     }
 
     public function paginateRecipes() {
-        $ingredients = Ingredient::paginate(8);
+        $ingredients = Ingredient::all();
 
         foreach ($ingredients as $ingredient) {
             $ingvar[] = "$ingredient->ingredient";
         }
 
-        $recipes = Recipe::paginate(24);
         $users = User::all();
+
+        $recipes = Recipe::where("title", "LIKE", "%" . $request->searchRecipes . "%")->orderBy('updated_at', "desc")->get();
 
         return view('paginate.recipes', [
             'ingvar' => $ingvar,
@@ -181,4 +188,68 @@ class RecipeeController extends Controller
         ]);
     }
 
+
+    public function addToBasket(Request $request) {
+        
+    }
+
 }
+
+
+
+
+// sistema de filtrado
+
+// $recipeindex=0;
+//         foreach(Recipe::where("title", "LIKE", "%" . $request->searchRecipes . "%")->orderBy('id')->get() as $dbrecipe) {
+//             $recipes[$recipeindex] = [
+//                 'id' => $dbrecipe->id,
+//                 'title' => $dbrecipe->title,
+//                 'user_id' => $dbrecipe->user_id,
+//                 'content' => $dbrecipe->content,
+//                 'thumbnail' => $dbrecipe->thumbnail,
+//                 'ingredients_list' => json_decode($dbrecipe->ingredients_list),
+//                 'coincidence' => $dbrecipe->coincidence
+//                 // 'created_at' => $dbrecipe->created_at,
+//                 // 'updated_at' => $dbrecipe->updated_at
+//             ];
+//             ++$recipeindex;
+//         }
+
+//         $recipeindex = 0;
+//         foreach($recipes as $recipe) {
+            
+//             $coincidence = 0;
+//             foreach($recipe['ingredients_list'] as $recipe_ingredient) {
+//                 foreach($basket as $basket_ingredient) {
+//                     if($recipe_ingredient->ingredient == $basket_ingredient) {
+//                         $coincidence = $coincidence +1;
+//                     }
+//                 }
+//             }
+
+//             $recipes[$recipeindex]['coincidence'] = $coincidence;
+
+//             $recipeindex++;
+
+
+//         }
+
+
+
+// public function recipeeFilter($array, $key) {
+
+//     foreach($array as $k => $v) {
+
+//         $b[] = strtolower($v->$key);
+//     }
+
+//     asort($b);
+
+//     foreach($b as $k => $v) {
+
+//         $c[] = $array[$k];
+//     }
+
+//     return $c;
+// }

@@ -1,5 +1,5 @@
 <script>
-    var jingvar = '<?php echo json_encode($ingvar); ?>';
+    var jingvar = '<?php echo json_encode($ingvar); ?>'
 </script>
 
 <script src="{{url('js/searchIngredients.js')}}"></script>

@@ -1,11 +1,13 @@
 <?php 
     use App\Models\User;
+    // dd ($recipes);
 ?>
 
 @foreach($recipes as $recipe)
 
         <?php 
             $author = User::find($recipe->user_id);
+            // dd($recipes);
         ?>
 
         <a href="{{ route('view.recipe', $recipe->id) }}" class="recipe-min hvr-float-shadow mmbr-bg-hvr">
@@ -16,6 +18,9 @@
                 </p>
                 <p style="" class="text-base font-semibold text-white">
                     {{$recipe->title}}
+                </p>
+                <p style="color:rgba(255, 255, 255,0.8)" class="text-sm t-0 l-0">
+                    {{$recipe->coincidence}}
                 </p>
             </div>
         </a>

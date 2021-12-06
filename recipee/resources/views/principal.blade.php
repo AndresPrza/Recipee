@@ -2,7 +2,7 @@
     use App\Models\User;
 ?>
 
-@extends('layouts.app')
+@extends('layouts.app')   
 
 @section('title', 'PRINCIPAL')
 
@@ -62,6 +62,7 @@
                 document.getElementById("recipes-container").innerHTML = html
             })
         })
+        
     })
 </script>
 
