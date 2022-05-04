@@ -1,6 +1,6 @@
 <div id="top"></div>
 
-
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -13,7 +13,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
    <p> Recipee is an unfinushed project I made initially for school. The idea was to create a website kind of like a social media,
     in which you could easily find dish recipes you could prepare with the ingredients you had. It i sobviousl not finished yet,
