@@ -11,7 +11,7 @@
     
     
 ### Project status
-This project is **not finished** and i don't plan on upsating it on the close future, i want to re-make it in the far future as i get more experienced though. 
+This project is **not finished** and i don't plan on updating it on the close future, i want to re-make it in the far future as i get more experienced though. 
 
 
 ### Built With
