@@ -3,7 +3,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+### About The Project
 
 
    <p> Recipee is a project I made for school. The idea was to create a website kind of like a social media,
