@@ -7,7 +7,7 @@
 
 
    <p> Recipee is a project I made for school. The idea was to create a website kind of like a social media,
-    in which you could easily find dish recipes you could prepare with ingredients you already had.</p>
+    in which you could easily find food recipes you could prepare with ingredients you already had.</p>
     
     
 ### Project status
